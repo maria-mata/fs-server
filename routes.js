@@ -16,5 +16,14 @@ router.get('/contacts/:id', (req, res) => {
     })
 })
 
+router.post('/contacts', (req, res) => {
+  console.log(req.body);
+  res.json({message: 'success!'})
+
+  // knex('contact').insert(req.body)
+  //   .then(function() {
+  //     res.json({message: 'success!'}))
+  //   })
+})
 
 module.exports = router
