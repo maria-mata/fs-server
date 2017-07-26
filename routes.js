@@ -20,7 +20,6 @@ router.post('/contacts', (req, res) => {
   knex('contact').insert(req.body)
     .returning('id')
     .then(data => {
-      console.log(data[0]);
       res.json({message: 'success!'})
     })
 })
