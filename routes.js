@@ -24,4 +24,13 @@ router.post('/contacts', (req, res) => {
     })
 })
 
+router.put('/contacts/:id', (req, res) => {
+  knex('contact').where('contact.id', req.params.id)
+    .update(req.body)
+    .returning('*')
+    .then(data => {
+      res.json({message: 'success!'})
+    })
+})
+
 module.exports = router
